@@ -6,8 +6,8 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.create
 
-object RetrofitClient {
-    private val BASE_URL = "https://openapi.naver.com"
+class RetrofitClient {
+    private val BASE_URL = "https://openapi.naver.com/"
 
     val retrofit = Retrofit.Builder()
         .baseUrl(BASE_URL)
