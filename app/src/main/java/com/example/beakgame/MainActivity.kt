@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
                 response: Response<SearchRequestDTO>
             ) {
                 val searchInfo = response.body()
-                Log.d("통신 성공", searchInfo?.display.toString())
+                Log.d("통신 성공", searchInfo?.items?.get(0)?.description.toString())
             }
 
             override fun onFailure(call: Call<SearchRequestDTO>, t: Throwable) {
