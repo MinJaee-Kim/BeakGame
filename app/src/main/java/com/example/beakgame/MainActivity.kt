@@ -25,12 +25,13 @@ class MainActivity : AppCompatActivity() {
         sendBtn = findViewById(R.id.sendBtn)
 
         searchFood()
+        sendBtnTouch()
     }
 
-    fun searchFood() {
-        val retrofitClient = RetrofitClient()
+    private fun searchFood() {
+        val retrofitClient = RetrofitClient
         
-        retrofitClient.searchAPI.getSearchInfo(id,secret,"20","김치찌개").enqueue(object : Callback<SearchRequestDTO> {
+        retrofitClient.searchAPI.getSearchInfo(id,secret,"20","확인").enqueue(object : Callback<SearchRequestDTO> {
             override fun onResponse(
                 call: Call<SearchRequestDTO>,
                 response: Response<SearchRequestDTO>
@@ -43,5 +44,25 @@ class MainActivity : AppCompatActivity() {
                 Log.d("통신 실패", t.message.toString())
             }
         })
+    }
+
+    private fun sendBtnTouch() {
+        val retrofitClient = RetrofitClient
+
+        sendBtn.setOnClickListener {
+            retrofitClient.searchAPI.getSearchInfo(id,secret,"20",searchText.text.toString()).enqueue(object : Callback<SearchRequestDTO> {
+                override fun onResponse(
+                    call: Call<SearchRequestDTO>,
+                    response: Response<SearchRequestDTO>
+                ) {
+                    val searchInfo = response.body()
+                    Log.d("통신 성공", searchInfo?.items?.get(0)?.description.toString())
+                }
+
+                override fun onFailure(call: Call<SearchRequestDTO>, t: Throwable) {
+                    Log.d("통신 실패", t.message.toString())
+                }
+            })
+        }
     }
 }

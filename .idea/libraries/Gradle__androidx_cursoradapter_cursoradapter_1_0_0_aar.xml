@@ -2,9 +2,10 @@
   <library name="Gradle: androidx.cursoradapter:cursoradapter:1.0.0@aar">
     <CLASSES>
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/5c5643796201c707dd466cff7c4b4622/transformed/cursoradapter-1.0.0/res" />
-      <root url="jar://C:/caches/transforms-3/5c5643796201c707dd466cff7c4b4622/transformed/cursoradapter-1.0.0/jars/classes.jar!/" />
-      <root url="file://C:/caches/transforms-3/5c5643796201c707dd466cff7c4b4622/transformed/cursoradapter-1.0.0/AndroidManifest.xml" />
       <root url="file://C:/caches/transforms-3/5c5643796201c707dd466cff7c4b4622/transformed/cursoradapter-1.0.0/res" />
+      <root url="file://C:/caches/transforms-3/5c3db0c14287eb1c5413f83950af67ba/transformed/cursoradapter-1.0.0/AndroidManifest.xml" />
+      <root url="file://C:/caches/transforms-3/5c3db0c14287eb1c5413f83950af67ba/transformed/cursoradapter-1.0.0/res" />
+      <root url="jar://C:/caches/transforms-3/5c3db0c14287eb1c5413f83950af67ba/transformed/cursoradapter-1.0.0/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
