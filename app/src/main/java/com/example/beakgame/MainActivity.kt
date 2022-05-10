@@ -21,11 +21,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        searchText = findViewById(R.id.searchEditText)
-        sendBtn = findViewById(R.id.sendBtn)
+//        searchText = findViewById(R.id.searchEditText)
+//        sendBtn = findViewById(R.id.sendBtn)
 
-        searchFood()
-        sendBtnTouch()
+//        searchFood()
+//        sendBtnTouch()
     }
 
     private fun searchFood() {
