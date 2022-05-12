@@ -3,6 +3,7 @@ package com.example.beakgame
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.WindowManager
 import android.widget.Button
 import android.widget.EditText
 import com.example.beakgame.dto.SearchRequestDTO
@@ -21,12 +22,14 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-//        searchText = findViewById(R.id.searchEditText)
+        searchText = findViewById(R.id.searchEditText)
+
 //        sendBtn = findViewById(R.id.sendBtn)
 
 //        searchFood()
 //        sendBtnTouch()
     }
+
 
     private fun searchFood() {
         val retrofitClient = RetrofitClient
