@@ -23,15 +23,16 @@ object RetrofitInformation {
                     call: Call<SearchRequestDTO>,
                     response: Response<SearchRequestDTO>
                 ) {
-                    try {
+                    if (response.body()==null) {
+                        Toast.makeText(context, "음식을 입력해주세요", Toast.LENGTH_SHORT).show()
+                    } else {
                         searchInfo = response.body()!!
                         Log.d("통신 성공", searchInfo.items.get(0).description.toString())
-                    }  catch (e:Exception) {
-                        Toast.makeText(context, "음식을 입력해보세요", Toast.LENGTH_SHORT).show()
                     }
                 }
 
                 override fun onFailure(call: Call<SearchRequestDTO>, t: Throwable) {
+                    Toast.makeText(context, "네트워크 상태를 확인해주세요", Toast.LENGTH_SHORT).show()
                     Log.d("통신 실패", t.message.toString())
                 }
             })
