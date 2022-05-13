@@ -3,5 +3,5 @@
     <font
         android:fontStyle="normal"
         android:fontWeight="400"
-        android:font="@font/cookierunfont_blod"/>
+        android:font="@font/suseongdotum"/>
 </font-family>
