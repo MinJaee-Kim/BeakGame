@@ -28,17 +28,17 @@ class MainActivity : AppCompatActivity() {
         searchText = findViewById(R.id.searchEditText)
         sendBtn = findViewById(R.id.sendBtn)
 
-        retrofitInformation.getRetrofit("asd")
         sendBtnTouch()
     }
 
 
     private fun sendBtnTouch() {
+
         sendBtn.setOnClickListener {
             if (searchText.text.isEmpty()) {
                 Toast.makeText(this, "음식을 입력해보세요", Toast.LENGTH_SHORT).show()
             } else {
-                retrofitInformation.getRetrofit(searchText.text.toString())
+                retrofitInformation.getRetrofit(searchText.text.toString(), this)
             }
         }
     }
