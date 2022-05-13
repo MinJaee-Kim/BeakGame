@@ -9,7 +9,9 @@
         <entry key="..\:/BeakGame/app/src/main/res/drawable/searchbtn_background.xml" value="0.2135" />
         <entry key="..\:/BeakGame/app/src/main/res/font/font.xml" value="0.1" />
         <entry key="..\:/BeakGame/app/src/main/res/font/font2.xml" value="0.1" />
+        <entry key="..\:/BeakGame/app/src/main/res/layout/activity_answer.xml" value="0.22" />
         <entry key="..\:/BeakGame/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/BeakGame/app/src/main/res/layout/activity_result.xml" value="0.2" />
       </map>
     </option>
   </component>

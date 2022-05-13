@@ -3,7 +3,7 @@ package com.example.beakgame.dto
 import android.icu.text.CaseMap
 import com.google.gson.annotations.SerializedName
 
-data class SearchRequestDTO(
+public data class SearchRequestDTO(
     @SerializedName("items") var items : List<Items>,
     @SerializedName("display") var display : Int?)
 
