@@ -15,7 +15,6 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.beakgame.dto.SearchRequestDTO
 import java.io.IOException
-import java.lang.Exception
 
 
 class MainActivity : AppCompatActivity() {

@@ -10,37 +10,40 @@ import retrofit2.Response
 import java.lang.Exception
 
 object RetrofitInformation {
-    const val ID = "gnVo4vAboIZQYqGSCEXz"
-    const val SECRET = "TqeFWa2Ffe"
+    private const val ID = "gnVo4vAboIZQYqGSCEXz"
+    private const val SECRET = "TqeFWa2Ffe"
     private var searchInfo: SearchRequestDTO? = null
 
     fun getRetrofit(search: String, context: Context) : SearchRequestDTO? {
         val retrofitClient = RetrofitClient
 
-            retrofitClient.searchAPI.getSearchInfo(ID,SECRET,"20",search).enqueue(object :
-                Callback<SearchRequestDTO> {
-                override fun onResponse(
-                    call: Call<SearchRequestDTO>,
-                    response: Response<SearchRequestDTO>
-                ) {
-                    if (response.body()==null) {
-                        Toast.makeText(context, "음식을 입력해주세요", Toast.LENGTH_SHORT).show()
-                    } else {
-                        searchInfo = response.body()!!
-                    }
-                }
+//            retrofitClient.searchAPI.getSearchInfo(ID,SECRET,"20",search).enqueue(object :
+//                Callback<SearchRequestDTO> {
+//                override fun onResponse(
+//                    call: Call<SearchRequestDTO>,
+//                    response: Response<SearchRequestDTO>
+//                ) {
+//                    if (response.body()==null) {
+//                        Toast.makeText(context, "음식을 입력해주세요", Toast.LENGTH_SHORT).show()
+//                    } else {
+//                        searchInfo = response.body()!!
+//                    }
+//                }
+//
+//                override fun onFailure(call: Call<SearchRequestDTO>, t: Throwable) {
+//                    Toast.makeText(context, "네트워크 상태를 확인해주세요", Toast.LENGTH_SHORT).show()
+//                    Log.d("통신 실패", t.message.toString())
+//                    return
+//                }
+//            })
 
-                override fun onFailure(call: Call<SearchRequestDTO>, t: Throwable) {
-                    Toast.makeText(context, "네트워크 상태를 확인해주세요", Toast.LENGTH_SHORT).show()
-                    Log.d("통신 실패", t.message.toString())
-                    return
-                }
-            })
-        try {
-            Thread.sleep(1000)
-        } catch (e:Exception) {
-            e.printStackTrace()
-        }
+        searchInfo = retrofitClient.searchAPI.getSearchInfo(ID,SECRET,"20",search).execute().body()
+
+//        try {
+//            Thread.sleep(1000)
+//        } catch (e:Exception) {
+//            e.printStackTrace()
+//        }
 
         return searchInfo
     }
