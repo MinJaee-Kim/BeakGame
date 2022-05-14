@@ -44,7 +44,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun sendEnterKey() {
-        searchText.setOnKeyListener { v, keyCode, event ->
+        searchText.setOnKeyListener { _, keyCode, event ->
             if (event.action == KeyEvent.ACTION_DOWN && keyCode == KEYCODE_ENTER) {
                 isCallFood()
             }
@@ -59,15 +59,19 @@ class MainActivity : AppCompatActivity() {
             Thread {
                 kotlin.run {
                     try {
-                        if (retrofitInformation.getRetrofit(searchText.text.toString(), this)==null){
+                        if (retrofitInformation.getRetrofit(searchText.text.toString())==null){
                             Handler(Looper.getMainLooper()).postDelayed({
                                 Toast.makeText(this, "음식을 입력해주세요", Toast.LENGTH_SHORT).show()
                             }, 0)
                         } else {
-                            searchInfo = retrofitInformation.getRetrofit(searchText.text.toString(), this)
-                            Log.d("TAG", searchInfo.toString())
-                            val intent = Intent(this, AnswerActivity::class.java)
-                            startActivity(intent)
+                            searchInfo = retrofitInformation.getRetrofit(searchText.text.toString())
+                            if (searchInfo?.let { isCorrect(it) } == true){
+                                val intent = Intent(this, AnswerActivity::class.java)
+                                startActivity(intent)
+                            } else {
+                                val intent = Intent(this, ResultActivity::class.java)
+                                startActivity(intent)
+                            }
                         }
                     } catch (e : IOException) {
                         searchInfo = null
@@ -86,7 +90,30 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
-    private fun isCurrect(searchInfo: SearchRequestDTO) {
+    private fun isCorrect(searchInfo: SearchRequestDTO) : Boolean {
+        var isBeak = false
+        var isCorrect = false
 
+        for (i in searchInfo.items.indices){
+            if (!isBeak) {
+                if (searchInfo.items[i].description?.contains("백종원") == true){
+                    Log.d("TAG", "isCurrect: 백종원"+searchInfo.items[i].description)
+                    isBeak = true
+                }
+            }
+
+            if (!isCorrect) {
+                if (searchInfo.items[i].description?.contains("레시피") == true ||
+                    searchInfo.items[i].description?.contains("만들기") == true
+                ) {
+                    Log.d("TAG", "isCurrect: 확인" + searchInfo.items[i].description)
+                    isCorrect = true
+                }
+            }
+        }
+
+        return if (isBeak) {
+            false
+        } else isCorrect
     }
 }

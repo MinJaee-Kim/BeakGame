@@ -22,6 +22,7 @@
         </activity>
 
         <activity android:name=".AnswerActivity"/>
+        <activity android:name=".ResultActivity"/>
     </application>
 
 </manifest>
