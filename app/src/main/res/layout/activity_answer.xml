@@ -4,10 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background">
+    android:background="@drawable/background"
+    android:scrollbarSize="25dp">
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/answerMainIv"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="70dp"
@@ -18,12 +19,12 @@
         app:srcCompat="@drawable/ddabong" />
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/answerBubbleIv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="-20dp"
-        app:layout_constraintEnd_toEndOf="@+id/imageView3"
-        app:layout_constraintTop_toTopOf="@+id/imageView3"
+        app:layout_constraintEnd_toEndOf="@+id/answerMainIv"
+        app:layout_constraintTop_toTopOf="@+id/answerMainIv"
         app:srcCompat="@drawable/bubble" />
 
     <TextView
@@ -33,19 +34,19 @@
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
         android:text="0"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView4"
-        app:layout_constraintEnd_toEndOf="@+id/imageView4"
-        app:layout_constraintStart_toStartOf="@+id/imageView4"
-        app:layout_constraintTop_toTopOf="@+id/imageView4" />
+        app:layout_constraintBottom_toBottomOf="@+id/answerBubbleIv"
+        app:layout_constraintEnd_toEndOf="@+id/answerBubbleIv"
+        app:layout_constraintStart_toStartOf="@+id/answerBubbleIv"
+        app:layout_constraintTop_toTopOf="@+id/answerBubbleIv" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/answerBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="계속하기"
-        app:layout_constraintEnd_toEndOf="@+id/imageView3"
-        app:layout_constraintStart_toStartOf="@+id/imageView3"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+        app:layout_constraintBottom_toBottomOf="@+id/answerMainIv"
+        app:layout_constraintEnd_toEndOf="@+id/answerMainIv"
+        app:layout_constraintStart_toStartOf="@+id/answerMainIv" />
 
     <TextView
         android:id="@+id/answerTv"
@@ -54,4 +55,16 @@
         android:text=" 점"
         app:layout_constraintBaseline_toBaselineOf="@+id/answerScore"
         app:layout_constraintStart_toEndOf="@+id/answerScore" />
+
+    <TextView
+        android:id="@+id/answerTv2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/cookierunfont_blod"
+        android:text="점수를 획득했어유"
+        android:textColor="#815854"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/answerMainIv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

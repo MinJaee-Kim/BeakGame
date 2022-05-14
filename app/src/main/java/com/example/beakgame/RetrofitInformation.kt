@@ -3,7 +3,6 @@ package com.example.beakgame
 import android.content.Context
 import android.util.Log
 import android.widget.Toast
-import com.example.beakgame.dto.Items
 import com.example.beakgame.dto.SearchRequestDTO
 import retrofit2.Call
 import retrofit2.Callback
@@ -11,14 +10,14 @@ import retrofit2.Response
 import java.lang.Exception
 
 object RetrofitInformation {
-    private val id = "gnVo4vAboIZQYqGSCEXz"
-    private val secret = "TqeFWa2Ffe"
-    private lateinit var searchInfo:SearchRequestDTO
+    const val ID = "gnVo4vAboIZQYqGSCEXz"
+    const val SECRET = "TqeFWa2Ffe"
+    private var searchInfo: SearchRequestDTO? = null
 
-    fun getRetrofit(search: String, context: Context) : SearchRequestDTO {
+    fun getRetrofit(search: String, context: Context) : SearchRequestDTO? {
         val retrofitClient = RetrofitClient
 
-            retrofitClient.searchAPI.getSearchInfo(id,secret,"20",search).enqueue(object :
+            retrofitClient.searchAPI.getSearchInfo(ID,SECRET,"20",search).enqueue(object :
                 Callback<SearchRequestDTO> {
                 override fun onResponse(
                     call: Call<SearchRequestDTO>,
@@ -28,7 +27,6 @@ object RetrofitInformation {
                         Toast.makeText(context, "음식을 입력해주세요", Toast.LENGTH_SHORT).show()
                     } else {
                         searchInfo = response.body()!!
-                        Log.d("통신 성공", searchInfo.items[0].description.toString())
                     }
                 }
 
@@ -43,6 +41,7 @@ object RetrofitInformation {
         } catch (e:Exception) {
             e.printStackTrace()
         }
+
         return searchInfo
     }
 }
