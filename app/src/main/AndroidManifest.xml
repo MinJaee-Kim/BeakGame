@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BeakGame">
         <activity
-            android:name=".MainActivity"
+            android:name=".view.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,8 +21,8 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".AnswerActivity"/>
-        <activity android:name=".ResultActivity"/>
+        <activity android:name=".view.AnswerActivity"/>
+        <activity android:name=".view.ResultActivity"/>
     </application>
 
 </manifest>

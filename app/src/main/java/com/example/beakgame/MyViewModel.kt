@@ -24,9 +24,9 @@ class MyViewModel : ViewModel() {
     fun updateValue (actionType: ActionType) {
         when(actionType){
             ActionType.PLUS ->
-                _currentValue.value = _currentValue.value?.plus(1)
+                _currentValue.postValue(_currentValue.value?.plus(1))
             ActionType.RESET ->
-                _currentValue.value = 0
+                _currentValue.postValue(0)
         }
     }
 }

@@ -1,4 +1,4 @@
-package com.example.beakgame
+package com.example.beakgame.view
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -11,19 +11,22 @@ import android.view.KeyEvent.KEYCODE_ENTER
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.Toast
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.example.beakgame.ActionType
+import com.example.beakgame.MyViewModel
+import com.example.beakgame.R
+import com.example.beakgame.Information
+import com.example.beakgame.Information.myViewModel
 import com.example.beakgame.dto.SearchRequestDTO
 import java.io.IOException
+import java.util.*
 
 
 class MainActivity : AppCompatActivity() {
-
     lateinit var searchText : EditText
     lateinit var sendBtn : ImageButton
-    lateinit var myViewModel: MyViewModel
-    private val retrofitInformation = RetrofitInformation
     private var searchInfo: SearchRequestDTO? = null
+    private var linkedList:LinkedList<String> = LinkedList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,6 +34,7 @@ class MainActivity : AppCompatActivity() {
 
         searchText = findViewById(R.id.searchEditText)
         sendBtn = findViewById(R.id.sendBtn)
+        myViewModel = ViewModelProvider(this).get(MyViewModel::class.java)
 
         sendBtnTouch()
         sendEnterKey()
@@ -59,16 +63,19 @@ class MainActivity : AppCompatActivity() {
             Thread {
                 kotlin.run {
                     try {
-                        if (retrofitInformation.getRetrofit(searchText.text.toString())==null){
+                        if (Information.getRetrofit(searchText.text.toString()) ==null){
                             Handler(Looper.getMainLooper()).postDelayed({
                                 Toast.makeText(this, "음식을 입력해주세요", Toast.LENGTH_SHORT).show()
                             }, 0)
                         } else {
-                            searchInfo = retrofitInformation.getRetrofit(searchText.text.toString())
+                            searchInfo = Information.getRetrofit(searchText.text.toString())
+                            linkedList.add(searchText.text.toString())
                             if (searchInfo?.let { isCorrect(it) } == true){
+                                myViewModel.updateValue(actionType = ActionType.PLUS)
                                 val intent = Intent(this, AnswerActivity::class.java)
                                 startActivity(intent)
                             } else {
+                                myViewModel.updateValue(actionType = ActionType.RESET)
                                 val intent = Intent(this, ResultActivity::class.java)
                                 startActivity(intent)
                             }
@@ -80,14 +87,6 @@ class MainActivity : AppCompatActivity() {
                 }
             }.start()
         }
-    }
-
-    private fun sendViewModel() {
-        myViewModel = ViewModelProvider(this).get(MyViewModel::class.java)
-
-        myViewModel.currentValue.observe(this, Observer {
-
-        })
     }
 
     private fun isCorrect(searchInfo: SearchRequestDTO) : Boolean {
