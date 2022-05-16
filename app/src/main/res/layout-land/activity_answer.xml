@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/landbackground">
+
+    <TextView
+        android:id="@+id/answerTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/cookierunfont_blod"
+        android:text="@string/answerTitle"
+        android:textColor="#815854"
+        android:textSize="30sp"
+        app:layout_constraintStart_toEndOf="@+id/answerMainIv"
+        app:layout_constraintTop_toTopOf="@+id/answerMainIv" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/answerLottAni"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_gravity="center"
+        app:layout_constraintStart_toStartOf="@+id/answerMainIv"
+        app:layout_constraintTop_toTopOf="@+id/answerMainIv"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/fireworks" />
+
+    <ImageView
+        android:id="@+id/answerMainIv"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/answerIv1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ddabong" />
+
+    <ImageView
+        android:id="@+id/answerBubbleIv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/answerIv2"
+        app:layout_constraintEnd_toEndOf="@+id/answerMainIv"
+        app:layout_constraintTop_toTopOf="@+id/answerMainIv"
+        app:srcCompat="@drawable/bubble"
+        tools:layout_editor_absoluteX="154dp"
+        tools:layout_editor_absoluteY="85dp" />
+
+    <TextView
+        android:id="@+id/answerScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="19dp"
+        android:fontFamily="@font/suseongdotum"
+        android:text=""
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="@+id/answerBubbleIv"
+        app:layout_constraintEnd_toEndOf="@+id/answerBubbleIv"
+        app:layout_constraintStart_toStartOf="@+id/answerBubbleIv"
+        app:layout_constraintTop_toTopOf="@+id/answerBubbleIv" />
+
+    <TextView
+        android:id="@+id/answerTv2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/suseongdotum"
+        android:text="@string/answerScore"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/answerScore"
+        app:layout_constraintStart_toEndOf="@+id/answerScore"
+        tools:layout_editor_absoluteX="695dp"
+        tools:layout_editor_absoluteY="51dp" />
+
+    <Button
+        android:id="@+id/answerBtn"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/btn_background"
+        android:drawableStart="@drawable/ic_baseline_arrow_forward_24"
+        android:fontFamily="@font/cookierunfont_regular"
+        android:paddingStart="10dp"
+        android:paddingEnd="40dp"
+        android:text="@string/answerBtn"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/answerMainIv" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

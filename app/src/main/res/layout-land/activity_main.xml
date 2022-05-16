@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/landbackground"
+    tools:context=".view.MainActivity">
+
+
+    <ImageView
+        android:id="@+id/mainIv"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:contentDescription="@string/mainIv1"
+        android:src="@drawable/beak"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/mainTitleText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/cookierunfont_black"
+        android:text="@string/mainTitle"
+        android:textColor="#815854"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="@+id/mainIv"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="@+id/mainIv"
+        app:layout_constraintTop_toTopOf="@+id/mainIv"
+        tools:layout_editor_absoluteX="684dp"
+        tools:layout_editor_absoluteY="134dp" />
+
+    <com.example.beakgame.CustomEditText
+        android:id="@+id/mainSearchEt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="50dp"
+        android:background="@drawable/edittext_background"
+        android:ems="10"
+        android:hint="@string/mainSearEt"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:paddingStart="12dp"
+        android:textColorHint="#757575"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/mainIv2"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="RtlSymmetry" />
+
+    <TextView
+        android:id="@+id/mainTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/suseongdotum"
+        android:text="@string/mainTv"
+        android:textColor="#815854"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="@+id/mainSearchEt"
+        app:layout_constraintTop_toBottomOf="@+id/mainSearchEt"
+        tools:layout_editor_absoluteX="579dp"
+        tools:layout_editor_absoluteY="188dp" />
+
+    <ImageButton
+        android:id="@+id/mainSendBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/searchbtn_background"
+        android:contentDescription="@string/mainBtn"
+        android:minWidth="48dp"
+        android:minHeight="48dp"
+        app:layout_constraintStart_toEndOf="@+id/mainSearchEt"
+        app:layout_constraintTop_toTopOf="@+id/mainSearchEt"
+        app:srcCompat="@drawable/ic_baseline_search_24" />
+
+    <ImageView
+        android:id="@+id/mainIv2"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:contentDescription="@string/mainIv2"
+        app:layout_constraintStart_toEndOf="@+id/mainIv"
+        app:layout_constraintTop_toTopOf="@+id/mainSearchEt"
+        app:srcCompat="@drawable/arrow"
+        tools:ignore="ImageContrastCheck" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
