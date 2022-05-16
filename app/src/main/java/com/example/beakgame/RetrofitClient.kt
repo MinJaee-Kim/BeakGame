@@ -9,11 +9,11 @@ import retrofit2.create
 object RetrofitClient {
     private const val BASE_URL = "https://openapi.naver.com/"
 
-    val retrofit: Retrofit = Retrofit.Builder()
+    private val retrofit: Retrofit = Retrofit.Builder()
         .baseUrl(BASE_URL)
         .client(OkHttpClient())
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 
-    val searchAPI = retrofit.create(RetrofitService::class.java)
+    val searchAPI: RetrofitService = retrofit.create(RetrofitService::class.java)
 }

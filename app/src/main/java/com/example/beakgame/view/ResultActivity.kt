@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.beakgame.ActionType
 import com.example.beakgame.Information
 import com.example.beakgame.R
+import com.squareup.picasso.Picasso
 import java.util.regex.Matcher
 import java.util.regex.Pattern
 
@@ -31,6 +32,26 @@ class ResultActivity : AppCompatActivity() {
 
         Information.myViewModel.currentValue.observe(this) {
             resultScore.text = it.toString()
+
+            if (it < 2) {
+                resultText.text = Information.resultArray[0]
+                Picasso.get().load(Information.resultImgArray[0]).into(resultImage)
+            } else if (it < 5) {
+                resultText.text = Information.resultArray[1]
+                Picasso.get().load(Information.resultImgArray[1]).into(resultImage)
+            } else if (it < 10) {
+                resultText.text = Information.resultArray[2]
+                Picasso.get().load(Information.resultImgArray[2]).into(resultImage)
+            } else if (it < 15) {
+                resultText.text = Information.resultArray[3]
+                Picasso.get().load(Information.resultImgArray[3]).into(resultImage)
+            } else if (it < 20) {
+                resultText.text = Information.resultArray[4]
+                Picasso.get().load(Information.resultImgArray[4]).into(resultImage)
+            } else {
+                resultText.text = Information.resultArray[5]
+                Picasso.get().load(Information.resultImgArray[5]).into(resultImage)
+            }
         }
         reStartBtnClick()
         linkText()
