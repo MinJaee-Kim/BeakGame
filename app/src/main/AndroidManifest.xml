@@ -22,7 +22,8 @@
         </activity>
 
         <activity android:name=".view.AnswerActivity"/>
-        <activity android:name=".view.ResultActivity"/>
+        <activity android:name=".view.ResultActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"/>
     </application>
 
 </manifest>

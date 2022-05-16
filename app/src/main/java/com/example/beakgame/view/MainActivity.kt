@@ -12,20 +12,18 @@ import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
-import com.example.beakgame.ActionType
-import com.example.beakgame.MyViewModel
-import com.example.beakgame.R
-import com.example.beakgame.Information
+import com.example.beakgame.*
 import com.example.beakgame.Information.myViewModel
 import com.example.beakgame.dto.SearchRequestDTO
 import java.io.IOException
-import java.util.*
 
 
 class MainActivity : AppCompatActivity() {
     lateinit var searchText : EditText
     lateinit var sendBtn : ImageButton
+    private var index:Int = 0
     private var searchInfo: SearchRequestDTO? = null
+    private val lottieDialogFragment by lazy { LottieDialogFragment() }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -67,7 +65,12 @@ class MainActivity : AppCompatActivity() {
                                 Toast.makeText(this, "음식을 입력해주세요", Toast.LENGTH_SHORT).show()
                             }, 0)
                         } else {
+                            lottieDialogFragment.show(supportFragmentManager, "loader")
+                            Handler(Looper.getMainLooper()).postDelayed({
+                                lottieDialogFragment.dismissAllowingStateLoss()
+                            }, 2500)
                             searchInfo = Information.getRetrofit(searchText.text.toString())
+                            Thread.sleep(3000)
                             if (searchInfo?.let { isCorrect(it) } == 1){
                                 myViewModel.updateValue(actionType = ActionType.PLUS)
                                 Information.overLabCheck.add(searchText.text.toString())
@@ -75,14 +78,18 @@ class MainActivity : AppCompatActivity() {
                                 startActivity(intent)
                             } else if (searchInfo?.let { isCorrect(it) } == 0) {
                                 //백종원임
+                                Information.result = "여깄어유"
                                 val intent = Intent(this, ResultActivity::class.java)
+                                Information.link = searchInfo?.items?.get(index)?.link.toString()
                                 startActivity(intent)
                             } else if (searchInfo?.let { isCorrect(it) } == 2) {
                                 //음식 아님
+                                Information.result = "음식이\n아니에유!"
                                 val intent = Intent(this, ResultActivity::class.java)
                                 startActivity(intent)
                             } else {
                                 //중복
+                                Information.result = "나왔던\n거에유"
                                 val intent = Intent(this, ResultActivity::class.java)
                                 startActivity(intent)
                             }
@@ -99,12 +106,15 @@ class MainActivity : AppCompatActivity() {
     private fun isCorrect(searchInfo: SearchRequestDTO) : Int {
         var isMaking = false
 
-        if (Information.overLabCheck.contains(searchText.text.toString()))
+        if (Information.overLabCheck.contains(searchText.text.toString())) {
+            index = 100
             return 3
+        }
 
         for (i in searchInfo.items.indices){
             if (searchInfo.items[i].description?.contains("백종원") == true){
                 Log.d("TAG", "isCurrect: 백종원"+searchInfo.items[i].description)
+                index = i
                 return 0
             }
 
@@ -112,6 +122,7 @@ class MainActivity : AppCompatActivity() {
                 searchInfo.items[i].description?.contains("만들기") == true
             ) {
                 Log.d("TAG", "isCurrect: 확인" + searchInfo.items[i].description)
+                index = 99
                 isMaking = true
             }
         }
