@@ -1,74 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background">
 
-    <ImageView
-        android:id="@+id/imageView5"
+    <TextView
+        android:id="@+id/resultText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="15dp"
+        android:layout_marginTop="40dp"
+        android:textColor="#815854"
+        android:textSize="30sp"
+        android:fontFamily="@font/cookierunfont_blod"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/resultIv1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="15dp"
+        android:contentDescription="@string/resultIv1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/resultText"
         app:srcCompat="@drawable/beak" />
 
     <ImageView
-        android:id="@+id/imageView6"
+        android:id="@+id/resultIv2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="-40dp"
-        app:layout_constraintEnd_toEndOf="@+id/imageView5"
-        app:layout_constraintTop_toTopOf="@+id/imageView5"
+        android:contentDescription="@string/resultIv2"
+        app:layout_constraintEnd_toEndOf="@+id/resultIv1"
+        app:layout_constraintTop_toTopOf="@+id/resultIv1"
         app:srcCompat="@drawable/bubble" />
 
-    <Button
-        android:id="@+id/button2"
+    <TextView
+        android:id="@+id/resultLink"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:fontFamily="@font/suseongdotum"
+        android:textColor="#815854"
+        android:text="@string/resultBubble"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="@+id/resultIv2"
+        app:layout_constraintEnd_toEndOf="@+id/resultIv2"
+        app:layout_constraintStart_toStartOf="@+id/resultIv2"
+        app:layout_constraintTop_toTopOf="@+id/resultIv2" />
+
+    <Button
+        android:id="@+id/resultBtn"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:text="다시하기"
-        app:layout_constraintStart_toStartOf="@+id/imageView5"
-        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+        android:background="@drawable/btn_background"
+        android:drawableStart="@drawable/ic_baseline_replay_24"
+        android:fontFamily="@font/cookierunfont_regular"
+        android:textSize="22sp"
+        android:paddingStart="10dp"
+        android:paddingEnd="20dp"
+        android:text="@string/resultBtn"
+        app:layout_constraintStart_toStartOf="@+id/resultIv1"
+        app:layout_constraintTop_toBottomOf="@+id/resultIv1" />
 
     <TextView
         android:id="@+id/resultTv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:text="점수"
-        app:layout_constraintBaseline_toBaselineOf="@+id/button2"
-        app:layout_constraintStart_toEndOf="@+id/button2" />
+        android:layout_marginStart="7dp"
+        android:fontFamily="@font/cookierunfont_regular"
+        android:gravity="center"
+        android:text="@string/resultScore"
+        android:textColor="#815854"
+        android:textSize="30sp"
+        app:layout_constraintStart_toEndOf="@+id/resultBtn"
+        app:layout_constraintTop_toTopOf="@+id/resultBtn" />
 
     <TextView
         android:id="@+id/resultScore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:text="0"
+        android:fontFamily="@font/cookierunfont_regular"
+        android:textColor="#815854"
+        android:textSize="30sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/resultTv"
         app:layout_constraintStart_toEndOf="@+id/resultTv" />
 
-    <TextView
-        android:id="@+id/resultText"
+    <Button
+        android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button2" />
-
-    <TextView
-        android:id="@+id/resultLink"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView6"
-        app:layout_constraintEnd_toEndOf="@+id/imageView6"
-        app:layout_constraintStart_toStartOf="@+id/imageView6"
-        app:layout_constraintTop_toTopOf="@+id/imageView6" />
+        android:layout_marginStart="8dp"
+        android:text="d"
+        app:layout_constraintBaseline_toBaselineOf="@+id/resultScore"
+        app:layout_constraintStart_toEndOf="@+id/resultScore" />
 </androidx.constraintlayout.widget.ConstraintLayout>

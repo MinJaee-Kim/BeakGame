@@ -6,12 +6,13 @@
         <entry key="..\:/BeakGame/app/src/main/res/drawable/edittext_background.xml" value="0.2395" />
         <entry key="..\:/BeakGame/app/src/main/res/drawable/ic_baseline_search_24.xml" value="0.1995" />
         <entry key="..\:/BeakGame/app/src/main/res/drawable/ic_launcher_background.xml" value="0.138" />
+        <entry key="..\:/BeakGame/app/src/main/res/drawable/keepbtn_background.xml" value="0.217" />
         <entry key="..\:/BeakGame/app/src/main/res/drawable/searchbtn_background.xml" value="0.2135" />
         <entry key="..\:/BeakGame/app/src/main/res/font/font.xml" value="0.1" />
         <entry key="..\:/BeakGame/app/src/main/res/font/font2.xml" value="0.1" />
-        <entry key="..\:/BeakGame/app/src/main/res/layout/activity_answer.xml" value="0.25" />
+        <entry key="..\:/BeakGame/app/src/main/res/layout/activity_answer.xml" value="0.33" />
         <entry key="..\:/BeakGame/app/src/main/res/layout/activity_main.xml" value="0.24625908507909364" />
-        <entry key="..\:/BeakGame/app/src/main/res/layout/activity_result.xml" value="0.2" />
+        <entry key="..\:/BeakGame/app/src/main/res/layout/activity_result.xml" value="0.25" />
       </map>
     </option>
   </component>

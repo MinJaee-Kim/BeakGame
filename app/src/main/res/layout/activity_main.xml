@@ -9,79 +9,84 @@
 
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/mainIv"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:contentDescription="@string/mainIv1"
         android:src="@drawable/beak"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/beakTitleText"
+        android:id="@+id/mainTitleText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="-16dp"
         android:fontFamily="@font/cookierunfont_black"
-        android:text="백종원\n 게임"
+        android:text="@string/mainTitle"
         android:textColor="#815854"
         android:textSize="30sp"
-        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="@+id/mainIv"
         app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="@+id/imageView"
-        app:layout_constraintTop_toTopOf="@+id/imageView" />
+        app:layout_constraintStart_toStartOf="@+id/mainIv"
+        app:layout_constraintTop_toTopOf="@+id/mainIv" />
 
     <com.example.beakgame.CustomEditText
-        android:id="@+id/searchEditText"
+        android:id="@+id/mainSearchEt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="40dp"
         android:background="@drawable/edittext_background"
         android:ems="10"
-        android:hint="음식을 검색하세요"
+        android:hint="@string/mainSearEt"
         android:inputType="textPersonName"
         android:minHeight="48dp"
+        tools:ignore="RtlSymmetry"
         android:paddingStart="12dp"
+        android:textColorHint="#757575"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/mainIv" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/mainTv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:fontFamily="@font/suseongdotum"
-        android:text="음식을 검색해보세유"
+        android:text="@string/mainTv"
         android:textColor="#815854"
         android:textSize="30sp"
-        app:layout_constraintStart_toStartOf="@+id/searchEditText"
-        app:layout_constraintTop_toBottomOf="@+id/searchEditText" />
+        app:layout_constraintStart_toStartOf="@+id/mainSearchEt"
+        app:layout_constraintTop_toBottomOf="@+id/mainSearchEt" />
 
 
     <ImageButton
-        android:id="@+id/sendBtn"
+        android:id="@+id/mainSendBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:background="@drawable/searchbtn_background"
-        android:contentDescription="searchBtn"
+        android:contentDescription="@string/mainBtn"
         android:minWidth="48dp"
         android:minHeight="48dp"
-        app:layout_constraintStart_toEndOf="@+id/searchEditText"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintStart_toEndOf="@+id/mainSearchEt"
+        app:layout_constraintTop_toBottomOf="@+id/mainIv"
         app:srcCompat="@drawable/ic_baseline_search_24" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/mainIv2"
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="4dp"
-        app:layout_constraintEnd_toStartOf="@+id/searchEditText"
-        app:layout_constraintTop_toTopOf="@+id/searchEditText"
-        app:srcCompat="@drawable/arrow" />
+        android:contentDescription="@string/mainIv2"
+        app:layout_constraintEnd_toStartOf="@+id/mainSearchEt"
+        app:layout_constraintTop_toTopOf="@+id/mainSearchEt"
+        app:srcCompat="@drawable/arrow"
+        tools:ignore="ImageContrastCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

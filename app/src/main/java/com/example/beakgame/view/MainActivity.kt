@@ -26,14 +26,14 @@ class MainActivity : AppCompatActivity() {
     lateinit var searchText : EditText
     lateinit var sendBtn : ImageButton
     private var searchInfo: SearchRequestDTO? = null
-    private var linkedList:LinkedList<String> = LinkedList()
+    private var overLabCheck:LinkedList<String> = LinkedList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        searchText = findViewById(R.id.searchEditText)
-        sendBtn = findViewById(R.id.sendBtn)
+        searchText = findViewById(R.id.mainSearchEt)
+        sendBtn = findViewById(R.id.mainSendBtn)
         myViewModel = ViewModelProvider(this).get(MyViewModel::class.java)
 
         sendBtnTouch()
@@ -69,12 +69,23 @@ class MainActivity : AppCompatActivity() {
                             }, 0)
                         } else {
                             searchInfo = Information.getRetrofit(searchText.text.toString())
-                            linkedList.add(searchText.text.toString())
-                            if (searchInfo?.let { isCorrect(it) } == true){
+                            if (searchInfo?.let { isCorrect(it) } == 1){
                                 myViewModel.updateValue(actionType = ActionType.PLUS)
+                                overLabCheck.add(searchText.text.toString())
                                 val intent = Intent(this, AnswerActivity::class.java)
                                 startActivity(intent)
+                            } else if (searchInfo?.let { isCorrect(it) } == 0) {
+                                //백종원임
+                                myViewModel.updateValue(actionType = ActionType.RESET)
+                                val intent = Intent(this, ResultActivity::class.java)
+                                startActivity(intent)
+                            } else if (searchInfo?.let { isCorrect(it) } == 2) {
+                                //음식 아님
+                                myViewModel.updateValue(actionType = ActionType.RESET)
+                                val intent = Intent(this, ResultActivity::class.java)
+                                startActivity(intent)
                             } else {
+                                //중복
                                 myViewModel.updateValue(actionType = ActionType.RESET)
                                 val intent = Intent(this, ResultActivity::class.java)
                                 startActivity(intent)
@@ -89,30 +100,30 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun isCorrect(searchInfo: SearchRequestDTO) : Boolean {
-        var isBeak = false
-        var isCorrect = false
+    private fun isCorrect(searchInfo: SearchRequestDTO) : Int {
+        var isMaking = false
+
+        if (overLabCheck.contains(searchText.text.toString()))
+            return 3
 
         for (i in searchInfo.items.indices){
-            if (!isBeak) {
-                if (searchInfo.items[i].description?.contains("백종원") == true){
-                    Log.d("TAG", "isCurrect: 백종원"+searchInfo.items[i].description)
-                    isBeak = true
-                }
+            if (searchInfo.items[i].description?.contains("백종원") == true){
+                Log.d("TAG", "isCurrect: 백종원"+searchInfo.items[i].description)
+                return 0
             }
 
-            if (!isCorrect) {
-                if (searchInfo.items[i].description?.contains("레시피") == true ||
-                    searchInfo.items[i].description?.contains("만들기") == true
-                ) {
-                    Log.d("TAG", "isCurrect: 확인" + searchInfo.items[i].description)
-                    isCorrect = true
-                }
+            if (searchInfo.items[i].description?.contains("레시피") == true ||
+                searchInfo.items[i].description?.contains("만들기") == true
+            ) {
+                Log.d("TAG", "isCurrect: 확인" + searchInfo.items[i].description)
+                isMaking = true
             }
         }
 
-        return if (isBeak) {
-            false
-        } else isCorrect
+        if (!isMaking) {
+            return 2
+        }
+
+        return 1
     }
 }

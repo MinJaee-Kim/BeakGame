@@ -1,3 +1,25 @@
 <resources>
     <string name="app_name">BeakGame</string>
+
+    <string name="mainIv1">백종원 사진</string>
+    <string name="mainIv2">화살표</string>
+    <string name="mainBtn">검색 버튼</string>
+
+    <string name="mainTitle">백종원\n 게임</string>
+    <string name="mainSearEt">음식을 검색하세요</string>
+    <string name="mainTv">음식을 검색해보세유</string>
+
+    <string name="answerIv1">백종원 사진</string>
+    <string name="answerIv2">말풍선</string>
+
+    <string name="answerTitle">점수를 획득했어유</string>
+    <string name="answerScore">점</string>
+    <string name="answerBtn">계속하기</string>
+
+    <string name="resultIv1">백종원 사진</string>
+    <string name="resultIv2">말풍선</string>
+
+    <string name="resultBubble">여깄어유</string>
+    <string name="resultScore">점수</string>
+    <string name="resultBtn">다시하기</string>
 </resources>
