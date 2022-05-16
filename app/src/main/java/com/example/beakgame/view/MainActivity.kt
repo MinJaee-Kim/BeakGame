@@ -26,7 +26,6 @@ class MainActivity : AppCompatActivity() {
     lateinit var searchText : EditText
     lateinit var sendBtn : ImageButton
     private var searchInfo: SearchRequestDTO? = null
-    private var overLabCheck:LinkedList<String> = LinkedList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -71,22 +70,19 @@ class MainActivity : AppCompatActivity() {
                             searchInfo = Information.getRetrofit(searchText.text.toString())
                             if (searchInfo?.let { isCorrect(it) } == 1){
                                 myViewModel.updateValue(actionType = ActionType.PLUS)
-                                overLabCheck.add(searchText.text.toString())
+                                Information.overLabCheck.add(searchText.text.toString())
                                 val intent = Intent(this, AnswerActivity::class.java)
                                 startActivity(intent)
                             } else if (searchInfo?.let { isCorrect(it) } == 0) {
                                 //백종원임
-                                myViewModel.updateValue(actionType = ActionType.RESET)
                                 val intent = Intent(this, ResultActivity::class.java)
                                 startActivity(intent)
                             } else if (searchInfo?.let { isCorrect(it) } == 2) {
                                 //음식 아님
-                                myViewModel.updateValue(actionType = ActionType.RESET)
                                 val intent = Intent(this, ResultActivity::class.java)
                                 startActivity(intent)
                             } else {
                                 //중복
-                                myViewModel.updateValue(actionType = ActionType.RESET)
                                 val intent = Intent(this, ResultActivity::class.java)
                                 startActivity(intent)
                             }
@@ -103,7 +99,7 @@ class MainActivity : AppCompatActivity() {
     private fun isCorrect(searchInfo: SearchRequestDTO) : Int {
         var isMaking = false
 
-        if (overLabCheck.contains(searchText.text.toString()))
+        if (Information.overLabCheck.contains(searchText.text.toString()))
             return 3
 
         for (i in searchInfo.items.indices){
