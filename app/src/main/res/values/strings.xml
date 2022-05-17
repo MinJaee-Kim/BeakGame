@@ -4,6 +4,7 @@
     <string name="mainIv1">백종원 사진</string>
     <string name="mainIv2">화살표</string>
     <string name="mainBtn">검색 버튼</string>
+    <string name="mainHowtoBtn">게임 방법</string>
 
     <string name="mainTitle">백종원\n 게임</string>
     <string name="mainSearEt">음식을 검색하세요</string>
@@ -23,4 +24,11 @@
     <string name="resultScore">점수</string>
     <string name="resultBtn">다시하기</string>
     <string name="resultKakao">카카오톡 공유하기</string>
+
+    <string name="howtoTv1">백종원 게임입니다!</string>
+    <string name="howtoTv2">네이버에 음식을 검색했을때\n [백종원] 이라는 단어가\n 포함되어 있으면 패배입니다!</string>
+    <string name="howtoTv3">또한 음식이 아니거나\n중복된 단어가 나왔을 경우\n패배합니다!</string>
+    <string name="howtoTv4">*음식을 판별할때 음식이 아님에도\n 정답으로 처리될 수 있습니다.\n\n*또한 음식임에도 오답으로\n 처리될 수도 있습니다.\n 양해를 부탁드립니다 (_ _</string>
+
+    <string name="howtoBtn">게임 하러가기!!</string>
 </resources>

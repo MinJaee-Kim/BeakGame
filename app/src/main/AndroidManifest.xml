@@ -42,6 +42,7 @@
         </activity>
 
         <activity android:name="com.minjaee.beakgame.view.AnswerActivity"/>
+        <activity android:name="com.minjaee.beakgame.view.HowToPlayActivity"/>
         <activity android:name="com.minjaee.beakgame.view.ResultActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
             android:exported="true">

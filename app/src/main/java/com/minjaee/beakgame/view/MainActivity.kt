@@ -7,9 +7,11 @@ import android.os.Handler
 import android.os.Looper
 import android.view.KeyEvent
 import android.view.KeyEvent.KEYCODE_ENTER
+import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdView
@@ -27,6 +29,7 @@ import java.io.IOException
 class MainActivity : AppCompatActivity() {
     lateinit var searchText : EditText
     lateinit var sendBtn : ImageButton
+    lateinit var howtoBtn: Button
     private var index:Int = 0
     private var searchInfo: SearchRequestDTO? = null
     lateinit var mAdView: AdView
@@ -37,10 +40,12 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         searchText = findViewById(R.id.mainSearchEt)
+        howtoBtn = findViewById(R.id.mainHowtoBtn)
         sendBtn = findViewById(R.id.mainSendBtn)
         myViewModel = ViewModelProvider(this).get(MyViewModel::class.java)
 
         sendBtnTouch()
+        howtoBtnTouch()
         sendEnterKey()
         getAdMob()
     }
@@ -49,6 +54,13 @@ class MainActivity : AppCompatActivity() {
     private fun sendBtnTouch() {
         sendBtn.setOnClickListener {
             isCallFood()
+        }
+    }
+
+    private fun howtoBtnTouch() {
+        howtoBtn.setOnClickListener {
+            val intent = Intent(this, HowToPlayActivity::class.java)
+            startActivity(intent)
         }
     }
 
@@ -76,6 +88,7 @@ class MainActivity : AppCompatActivity() {
                             lottieDialogFragment.show(supportFragmentManager, "loader")
                             Handler(Looper.getMainLooper()).postDelayed({
                                 lottieDialogFragment.dismissAllowingStateLoss()
+                                searchText.text = null
                             }, 2500)
                             searchInfo = Information.getRetrofit(searchText.text.toString())
                             Thread.sleep(3000)

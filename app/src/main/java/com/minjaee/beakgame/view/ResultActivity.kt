@@ -31,7 +31,7 @@ class ResultActivity : AppCompatActivity() {
     private lateinit var resultScore:TextView
     private lateinit var resultImage:ImageView
     private lateinit var resultBtn:Button
-    private lateinit var kakaoBtn:ImageButton
+    private lateinit var kakaoBtn: ImageButton
     private var myscore = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,7 +43,6 @@ class ResultActivity : AppCompatActivity() {
         resultImage = findViewById(R.id.resultIv1)
         resultBtn = findViewById(R.id.resultBtn)
         kakaoBtn = findViewById(R.id.resultKakaoBtn)
-        KakaoSdk.init(this, "9410a0fbf66fe85850ca6cb04a559425")
 
         observeInfo()
         reStartBtnClick()
@@ -111,6 +110,7 @@ class ResultActivity : AppCompatActivity() {
     }
 
     fun kakaoLink() {
+        KakaoSdk.init(this, "9410a0fbf66fe85850ca6cb04a559425")
         val defaultFeed = FeedTemplate(
             content = Content(
                 title = "백종원 게임",
@@ -137,9 +137,7 @@ class ResultActivity : AppCompatActivity() {
         if (LinkClient.instance.isKakaoLinkAvailable(this)) {
             // 카카오톡으로 카카오링크 공유 가능
             LinkClient.instance.defaultTemplate(this, defaultFeed) { linkResult, error ->
-                if (error != null) {
-                }
-                else if (linkResult != null) {
+                if (linkResult != null) {
                     startActivity(linkResult.intent)
 
                     // 카카오링크 보내기에 성공했지만 아래 경고 메시지가 존재할 경우 일부 컨텐츠가 정상 동작하지 않을 수 있습니다.

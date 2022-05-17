@@ -45,6 +45,7 @@
         android:ems="10"
         android:hint="@string/mainSearEt"
         android:inputType="textPersonName"
+        android:textColor="@color/black"
         android:minHeight="48dp"
         tools:ignore="RtlSymmetry"
         android:paddingStart="12dp"
@@ -72,6 +73,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:background="@drawable/searchbtn_background"
+        android:tint="@color/black"
         android:contentDescription="@string/mainBtn"
         android:minWidth="48dp"
         android:minHeight="48dp"
@@ -102,5 +104,17 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/mainHowtoBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_howtoplay"
+        android:fontFamily="@font/suseongdotum"
+        android:text="@string/mainHowtoBtn"
+        android:textColor="@color/black"
+        android:textSize="17sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

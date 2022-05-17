@@ -82,16 +82,18 @@
     <Button
         android:id="@+id/answerBtn"
         android:layout_width="250dp"
-        android:paddingStart="10dp"
         android:layout_height="wrap_content"
         android:background="@drawable/btn_background"
         android:drawableStart="@drawable/ic_baseline_arrow_forward_24"
-        android:text="@string/answerBtn"
         android:fontFamily="@font/cookierunfont_regular"
-        android:textSize="22sp"
+        android:paddingStart="10dp"
         android:paddingEnd="40dp"
+        android:textColor="@color/black"
+        android:text="@string/answerBtn"
+        android:textSize="22sp"
         app:layout_constraintBottom_toBottomOf="@+id/answerMainIv"
         app:layout_constraintEnd_toEndOf="@+id/answerMainIv"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="@+id/answerMainIv" />
 
     <com.google.android.gms.ads.AdView
