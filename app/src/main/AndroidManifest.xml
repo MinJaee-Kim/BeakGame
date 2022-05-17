@@ -7,6 +7,7 @@
         <package android:name="com.kakao.talk" />
     </queries>
 
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher_foreground"
@@ -16,6 +17,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BeakGame"
         tools:targetApi="m">
+        <!-- Sample AdMob app ID: ca-app-pub-3940256099942544~3347511713 -->
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-7394882970303365~4551343663"/>
         <activity
             android:name="com.minjaee.beakgame.view.MainActivity"
             android:exported="true">

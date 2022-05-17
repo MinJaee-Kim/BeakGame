@@ -4,12 +4,14 @@ import android.content.ActivityNotFoundException
 import android.content.res.Configuration
 import android.os.Bundle
 import android.text.util.Linkify
-import android.util.Log
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.MobileAds
 import com.minjaee.beakgame.ActionType
 import com.minjaee.beakgame.Information
 import com.minjaee.beakgame.R
@@ -24,6 +26,7 @@ import java.util.regex.Pattern
 
 class ResultActivity : AppCompatActivity() {
     private lateinit var resultText:TextView
+    lateinit var mAdView: AdView
     private lateinit var resultLink:TextView
     private lateinit var resultScore:TextView
     private lateinit var resultImage:ImageView
@@ -46,6 +49,7 @@ class ResultActivity : AppCompatActivity() {
         reStartBtnClick()
         linkText()
         kakaoBtnClick()
+        getAdMob()
     }
 
     private fun reStartBtnClick() {
@@ -134,15 +138,11 @@ class ResultActivity : AppCompatActivity() {
             // 카카오톡으로 카카오링크 공유 가능
             LinkClient.instance.defaultTemplate(this, defaultFeed) { linkResult, error ->
                 if (error != null) {
-                    Log.e("TAG", "카카오링크 보내기 실패", error)
                 }
                 else if (linkResult != null) {
-                    Log.d("TAG", "카카오링크 보내기 성공 ${linkResult.intent}")
                     startActivity(linkResult.intent)
 
                     // 카카오링크 보내기에 성공했지만 아래 경고 메시지가 존재할 경우 일부 컨텐츠가 정상 동작하지 않을 수 있습니다.
-                    Log.w("TAG", "Warning Msg: ${linkResult.warningMsg}")
-                    Log.w("TAG", "Argument Msg: ${linkResult.argumentMsg}")
                 }
             }
         } else {
@@ -166,6 +166,17 @@ class ResultActivity : AppCompatActivity() {
                 // 인터넷 브라우저가 없을 때 예외처리
             }
         }
+    }
+
+    private fun getAdMob() {
+        MobileAds.initialize(this) {}
+
+        val adView = AdView(this)
+        adView.adUnitId = "ca-app-pub-7394882970303365/8154998012"
+
+        mAdView = findViewById(R.id.resultAdView)
+        val adRequest = AdRequest.Builder().build()
+        mAdView.loadAd(adRequest)
     }
 
     override fun onConfigurationChanged(newConfig: Configuration) {

@@ -5,13 +5,15 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.util.Log
 import android.view.KeyEvent
 import android.view.KeyEvent.KEYCODE_ENTER
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.MobileAds
 import com.minjaee.beakgame.*
 import com.minjaee.beakgame.Information.myViewModel
 import com.minjaee.beakgame.dto.SearchRequestDTO
@@ -27,6 +29,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var sendBtn : ImageButton
     private var index:Int = 0
     private var searchInfo: SearchRequestDTO? = null
+    lateinit var mAdView: AdView
     private val lottieDialogFragment by lazy { LottieDialogFragment() }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,6 +42,7 @@ class MainActivity : AppCompatActivity() {
 
         sendBtnTouch()
         sendEnterKey()
+        getAdMob()
     }
 
 
@@ -117,7 +121,6 @@ class MainActivity : AppCompatActivity() {
 
         for (i in searchInfo.items.indices){
             if (searchInfo.items[i].description?.contains("백종원") == true){
-                Log.d("TAG", "isCurrect: 백종원"+searchInfo.items[i].description)
                 index = i
                 return 0
             }
@@ -125,7 +128,6 @@ class MainActivity : AppCompatActivity() {
             if (searchInfo.items[i].description?.contains("레시피") == true ||
                 searchInfo.items[i].description?.contains("만들기") == true
             ) {
-                Log.d("TAG", "isCurrect: 확인" + searchInfo.items[i].description)
                 index = 99
                 isMaking = true
             }
@@ -136,5 +138,16 @@ class MainActivity : AppCompatActivity() {
         }
 
         return 1
+    }
+
+    private fun getAdMob() {
+        MobileAds.initialize(this) {}
+
+        val adView = AdView(this)
+        adView.adUnitId = "ca-app-pub-7394882970303365/8154998012"
+
+        mAdView = findViewById(R.id.mainAdView)
+        val adRequest = AdRequest.Builder().build()
+        mAdView.loadAd(adRequest)
     }
 }

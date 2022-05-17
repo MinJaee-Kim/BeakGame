@@ -4,7 +4,6 @@ import com.minjaee.beakgame.service.RetrofitService
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.create
 
 object RetrofitClient {
     private const val BASE_URL = "https://openapi.naver.com/"

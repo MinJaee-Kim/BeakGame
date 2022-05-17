@@ -94,4 +94,18 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/answerMainIv" />
 
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/answerAdView"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginEnd="-135dp"
+        android:rotation="270"
+        app:adSize="BANNER"
+        app:adUnitId="ca-app-pub-7394882970303365/8154998012"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
