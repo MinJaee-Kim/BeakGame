@@ -88,13 +88,13 @@ class MainActivity : AppCompatActivity() {
                             lottieDialogFragment.show(supportFragmentManager, "loader")
                             Handler(Looper.getMainLooper()).postDelayed({
                                 lottieDialogFragment.dismissAllowingStateLoss()
+                                Information.overLabCheck.add(searchText.text.toString())
                                 searchText.text = null
                             }, 2500)
                             searchInfo = Information.getRetrofit(searchText.text.toString())
                             Thread.sleep(3000)
                             if (searchInfo?.let { isCorrect(it) } == 1){
                                 myViewModel.updateValue(actionType = ActionType.PLUS)
-                                Information.overLabCheck.add(searchText.text.toString())
                                 val intent = Intent(this, AnswerActivity::class.java)
                                 startActivity(intent)
                             } else if (searchInfo?.let { isCorrect(it) } == 0) {

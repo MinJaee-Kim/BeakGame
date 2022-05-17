@@ -99,11 +99,11 @@
         android:id="@+id/resultKakaoBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="25dp"
         android:background="#00ff0000"
+        android:contentDescription="@string/resultKakao"
         app:layout_constraintStart_toEndOf="@+id/resultScore"
         app:layout_constraintTop_toTopOf="@+id/resultScore"
-        android:contentDescription="@string/resultKakao"
         app:srcCompat="@drawable/kakaobtn" />
 
     <com.google.android.gms.ads.AdView
