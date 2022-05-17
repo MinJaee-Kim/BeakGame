@@ -1,4 +1,4 @@
-package com.example.beakgame.view
+package com.minjaee.beakgame.view
 
 import android.content.ActivityNotFoundException
 import android.content.res.Configuration
@@ -10,9 +10,9 @@ import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.example.beakgame.ActionType
-import com.example.beakgame.Information
-import com.example.beakgame.R
+import com.minjaee.beakgame.ActionType
+import com.minjaee.beakgame.Information
+import com.minjaee.beakgame.R
 import com.kakao.sdk.common.KakaoSdk
 import com.kakao.sdk.common.util.KakaoCustomTabsClient
 import com.kakao.sdk.link.LinkClient

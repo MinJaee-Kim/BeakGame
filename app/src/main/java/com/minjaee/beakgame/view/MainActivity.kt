@@ -1,4 +1,4 @@
-package com.example.beakgame.view
+package com.minjaee.beakgame.view
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -12,9 +12,13 @@ import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
-import com.example.beakgame.*
-import com.example.beakgame.Information.myViewModel
-import com.example.beakgame.dto.SearchRequestDTO
+import com.minjaee.beakgame.*
+import com.minjaee.beakgame.Information.myViewModel
+import com.minjaee.beakgame.dto.SearchRequestDTO
+import com.minjaee.beakgame.ActionType
+import com.minjaee.beakgame.Information
+import com.minjaee.beakgame.LottieDialogFragment
+import com.minjaee.beakgame.MyViewModel
 import java.io.IOException
 
 

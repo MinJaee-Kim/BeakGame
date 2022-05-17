@@ -1,6 +1,6 @@
-package com.example.beakgame
+package com.minjaee.beakgame
 
-import com.example.beakgame.service.RetrofitService
+import com.minjaee.beakgame.service.RetrofitService
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

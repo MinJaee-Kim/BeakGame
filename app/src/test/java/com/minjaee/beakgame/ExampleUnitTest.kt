@@ -1,4 +1,4 @@
-package com.example.beakgame
+package com.minjaee.beakgame
 
 import org.junit.Test
 

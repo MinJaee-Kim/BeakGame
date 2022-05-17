@@ -1,4 +1,4 @@
-package com.example.beakgame.dto
+package com.minjaee.beakgame.dto
 
 import com.google.gson.annotations.SerializedName
 

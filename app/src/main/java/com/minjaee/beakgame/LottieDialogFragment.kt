@@ -1,4 +1,4 @@
-package com.example.beakgame
+package com.minjaee.beakgame
 
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable

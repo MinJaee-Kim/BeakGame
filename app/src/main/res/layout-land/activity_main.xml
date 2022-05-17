@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/landbackground"
-    tools:context=".view.MainActivity">
+    tools:context="com.minjaee.beakgame.view.MainActivity">
 
 
     <ImageView
@@ -34,7 +34,7 @@
         tools:layout_editor_absoluteX="684dp"
         tools:layout_editor_absoluteY="134dp" />
 
-    <com.example.beakgame.CustomEditText
+    <com.minjaee.beakgame.CustomEditText
         android:id="@+id/mainSearchEt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

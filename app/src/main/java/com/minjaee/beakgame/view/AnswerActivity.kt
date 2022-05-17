@@ -1,4 +1,4 @@
-package com.example.beakgame.view
+package com.minjaee.beakgame.view
 
 import android.os.Bundle
 import android.os.Handler
@@ -7,7 +7,8 @@ import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.example.beakgame.*
+import com.minjaee.beakgame.*
+import com.minjaee.beakgame.Information
 
 class AnswerActivity : AppCompatActivity() {
     private lateinit var answerBtn:Button

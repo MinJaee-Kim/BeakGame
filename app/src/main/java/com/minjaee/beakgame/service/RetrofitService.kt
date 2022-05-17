@@ -1,6 +1,6 @@
-package com.example.beakgame.service
+package com.minjaee.beakgame.service
 
-import com.example.beakgame.dto.SearchRequestDTO
+import com.minjaee.beakgame.dto.SearchRequestDTO
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Header

@@ -1,4 +1,4 @@
-package com.example.beakgame
+package com.minjaee.beakgame
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

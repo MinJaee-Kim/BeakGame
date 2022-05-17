@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.beakgame">
+    package="com.minjaee.beakgame">
     <uses-permission android:name="android.permission.INTERNET"/>
     <queries>
         <package android:name="com.kakao.talk" />
@@ -17,7 +17,7 @@
         android:theme="@style/Theme.BeakGame"
         tools:targetApi="m">
         <activity
-            android:name=".view.MainActivity"
+            android:name="com.minjaee.beakgame.view.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -36,8 +36,8 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".view.AnswerActivity"/>
-        <activity android:name=".view.ResultActivity"
+        <activity android:name="com.minjaee.beakgame.view.AnswerActivity"/>
+        <activity android:name="com.minjaee.beakgame.view.ResultActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
             android:exported="true">
         </activity>
