@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.beakgame">
     <uses-permission android:name="android.permission.INTERNET"/>
+    <queries>
+        <package android:name="com.kakao.talk" />
+    </queries>
 
     <application
         android:allowBackup="true"
@@ -10,7 +14,8 @@
         android:usesCleartextTraffic="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.BeakGame">
+        android:theme="@style/Theme.BeakGame"
+        tools:targetApi="m">
         <activity
             android:name=".view.MainActivity"
             android:exported="true">
@@ -19,11 +24,23 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <!-- "kakao${YOUR_NATIVE_APP_KEY}://kakaolink" 형식의 앱 실행 스킴을 설정하는데 사용 -->
+                <data android:host="kakaolink"
+                    android:scheme="kakao9410a0fbf66fe85850ca6cb04a559425" />
+            </intent-filter>
         </activity>
 
         <activity android:name=".view.AnswerActivity"/>
         <activity android:name=".view.ResultActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"/>
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:exported="true">
+        </activity>
     </application>
 
 </manifest>

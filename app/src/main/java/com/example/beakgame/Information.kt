@@ -1,8 +1,5 @@
 package com.example.beakgame
 
-import android.os.Handler
-import android.os.Looper
-import androidx.fragment.app.FragmentManager
 import com.example.beakgame.dto.SearchRequestDTO
 import java.util.*
 

@@ -11,7 +11,7 @@
     <ImageView
         android:id="@+id/mainIv"
         android:layout_width="250dp"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_marginStart="30dp"
         android:contentDescription="@string/mainIv1"
         android:src="@drawable/beak"
