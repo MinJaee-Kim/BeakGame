@@ -5,17 +5,6 @@
     android:layout_height="match_parent"
     android:background="@drawable/landbackground">
 
-    <ImageButton
-        android:id="@+id/resultKakaoBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:background="#00ff0000"
-        android:contentDescription="@string/resultKakao"
-        app:layout_constraintStart_toEndOf="@+id/resultScore"
-        app:layout_constraintTop_toTopOf="@+id/resultScore"
-        app:srcCompat="@drawable/kakaobtn" />
-
     <TextView
         android:id="@+id/resultText"
         android:layout_width="wrap_content"
@@ -30,8 +19,8 @@
 
     <ImageView
         android:id="@+id/resultIv1"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
         android:contentDescription="@string/resultIv1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -72,8 +61,8 @@
         android:fontFamily="@font/cookierunfont_regular"
         android:paddingStart="10dp"
         android:paddingEnd="20dp"
-        android:textColor="@color/black"
         android:text="@string/resultBtn"
+        android:textColor="@color/black"
         android:textSize="22sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/resultIv1" />
@@ -101,6 +90,17 @@
         android:textSize="30sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/resultTv"
         app:layout_constraintStart_toEndOf="@+id/resultTv" />
+
+    <ImageButton
+        android:id="@+id/resultKakaoBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:background="#00ff0000"
+        android:contentDescription="@string/resultKakao"
+        app:layout_constraintStart_toEndOf="@+id/resultScore"
+        app:layout_constraintTop_toTopOf="@+id/resultScore"
+        app:srcCompat="@drawable/kakaobtn" />
 
     <com.google.android.gms.ads.AdView
         android:id="@+id/resultAdView"
