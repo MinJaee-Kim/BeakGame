@@ -88,8 +88,6 @@ class MainActivity : AppCompatActivity() {
                             lottieDialogFragment.show(supportFragmentManager, "loader")
                             Handler(Looper.getMainLooper()).postDelayed({
                                 lottieDialogFragment.dismissAllowingStateLoss()
-                                Information.overLabCheck.add(searchText.text.toString())
-                                searchText.text = null
                             }, 2500)
                             searchInfo = Information.getRetrofit(searchText.text.toString())
                             Thread.sleep(3000)
@@ -131,6 +129,12 @@ class MainActivity : AppCompatActivity() {
             index = 100
             return 3
         }
+
+        Handler(Looper.getMainLooper()).postDelayed({
+            Information.overLabCheck.add(searchText.text.toString())
+            searchText.text = null
+        }, 0)
+
 
         for (i in searchInfo.items.indices){
             if (searchInfo.items[i].description?.contains("백종원") == true){
