@@ -5,13 +5,14 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.text.Editable
 import android.view.KeyEvent
+import android.view.KeyEvent.KEYCODE_DEL
 import android.view.KeyEvent.KEYCODE_ENTER
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatDelegate
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdView
@@ -68,6 +69,10 @@ class MainActivity : AppCompatActivity() {
         searchText.setOnKeyListener { _, keyCode, event ->
             if (event.action == KeyEvent.ACTION_DOWN && keyCode == KEYCODE_ENTER) {
                 isCallFood()
+            }
+            if (event.action == KeyEvent.ACTION_DOWN && keyCode == KEYCODE_DEL && searchText.text.isNotEmpty()) {
+                searchText.text = Editable.Factory.getInstance().newEditable(searchText.text.toString().substring(0, searchText.length()-1))
+                searchText.setSelection(searchText.length())
             }
             true
         }
