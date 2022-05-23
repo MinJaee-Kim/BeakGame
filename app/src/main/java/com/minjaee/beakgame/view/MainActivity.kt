@@ -148,7 +148,8 @@ class MainActivity : AppCompatActivity() {
             }
 
             if (searchInfo.items[i].description?.contains("레시피") == true ||
-                searchInfo.items[i].description?.contains("만들기") == true
+                searchInfo.items[i].description?.contains("만들기") == true ||
+                searchInfo.items[i].description?.contains("맛집") == true
             ) {
                 index = 99
                 isMaking = true
