@@ -2,7 +2,7 @@
 <br><br>
 백종원 게임을 앱으로 만들어 보았습니다.
 <h2>메인 화면</h2>
-<img src="" width="700">
+<img src="https://github.com/MinJaee-Kim/BeakGame/assets/75728238/5c5453ff-1ef6-4dbe-8145-14991853bbea" width="700">
 <br>
 
 <h2>총평</h2>
